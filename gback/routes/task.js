@@ -1,7 +1,17 @@
 const { Router } = require("express");
 const Task = require("../models/task");
 const router = Router();
+const client = require('../client');
 
+// Promisify Redis client methods for better async/await usage
+const getAsync = (key) => {
+  return new Promise((resolve, reject) => {
+    client.get(key, (err, reply) => {
+      if (err) reject(err);
+      resolve(reply);
+    });
+  });
+};
 
 router.post('/add-task', async (req, res) => {
   const { userId, task, duedatetime } = req.body;
@@ -11,25 +21,24 @@ router.post('/add-task', async (req, res) => {
   }
 
   try {
-    // Find the task document for the user
     let userTask = await Task.findOne({ userId });
 
     if (!userTask) {
-      // If no task document exists for this user, create a new one
       userTask = new Task({
         userId,
         tasks: [{ task, duedatetime }]
       });
     } else {
-      // If task document exists, push the new task into the tasks array
       userTask.tasks.push({ task, duedatetime });
     }
 
-    // Save the task document
-    const savedTask= await userTask.save();
-    console.log(savedTask);
+    const savedTask = await userTask.save();
     const lastTask = savedTask.tasks[savedTask.tasks.length - 1];
     
+    // Invalidate user-specific cache instead of general 'tasks' key
+    const cacheKey = `tasks_${userId}`;
+    await client.del(cacheKey);
+
     res.status(200).json({ taskId: lastTask._id });
   } catch (error) {
     console.error('Error adding task:', error);
@@ -39,28 +48,42 @@ router.post('/add-task', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-     
     const userId = req.params.id;
+    const cacheKey = `tasks_${userId}`;
+    
+    try {
+      const cachedTasks = await getAsync(cacheKey);
       
-      const userTask = await Task.findOne({ userId });
-
-   
-      if (!userTask) {
-          return res.status(404).json({ message: "task not found" });
+      if (cachedTasks) {
+        console.log('Cache hit');
+        return res.json(JSON.parse(cachedTasks));
       }
 
+      const userTask = await Task.findOne({ userId });
+      if (!userTask) {
+        return res.status(404).json({ message: "Task not found" });
+      }
 
       const tasks = userTask.tasks;
-   
-   console.log(tasks);
+      await client.setex(cacheKey, 3600, JSON.stringify(tasks));
 
+      console.log('Cache miss');
       return res.json(tasks);
+    } catch (redisError) {
+      // Fallback to database if Redis fails
+      console.error('Redis error, falling back to database:', redisError);
+      const userTask = await Task.findOne({ userId });
+      if (!userTask) {
+        return res.status(404).json({ message: "Task not found" });
+      }
+      return res.json(userTask.tasks);
+    }
   } catch (error) {
-      console.error('Error fetching tasks:', error); 
-      return res.status(500).json({
-          message: "An error occurred while fetching tasks",
-          error: error.message,
-      });
+    console.error("Error fetching tasks:", error);
+    return res.status(500).json({
+      message: "Error fetching tasks",
+      error: error.message,
+    });
   }
 });
 
@@ -68,25 +91,24 @@ router.delete('/:userId/:taskId', async (req, res) => {
   const { userId, taskId } = req.params;
 
   try {
-    // Find the user task document for the user
     const userTask = await Task.findOne({ userId });
 
     if (!userTask) {
       return res.status(404).json({ message: 'Task document not found for this user' });
     }
 
-    // Find the index of the task to be deleted
     const taskIndex = userTask.tasks.findIndex(task => task._id.toString() === taskId);
 
     if (taskIndex === -1) {
       return res.status(404).json({ message: 'Task not found' });
     }
 
-    // Remove the task from the tasks array
     userTask.tasks.splice(taskIndex, 1);
-
-    // Save the updated task document
     const tasks = await userTask.save();
+
+    // Invalidate user-specific cache
+    const cacheKey = `tasks_${userId}`;
+    await client.del(cacheKey);
 
     return res.status(200).json(tasks);
   } catch (error) {
@@ -99,23 +121,25 @@ router.patch('/:userId/:taskId', async (req, res) => {
   const { userId, taskId } = req.params;
 
   try {
-    // Find the task document where the userId matches and the specific taskId in the tasks array
     const task = await Task.findOneAndUpdate(
-      { userId: userId, 'tasks._id': taskId }, // Match the userId and the task's _id
-      { $set: { 'tasks.$.completed': true } }, // Update the specific task's 'completed' field to true
-      { new: true } // Return the updated document
+      { userId: userId, 'tasks._id': taskId },
+      { $set: { 'tasks.$.completed': true } },
+      { new: true }
     );
 
     if (!task) {
       return res.status(404).json({ message: 'Task not found' });
     }
-     const tasks = task.tasks;
-    res.status(200).json(tasks);
+    
+    // Invalidate user-specific cache
+    const cacheKey = `tasks_${userId}`;
+    await client.del(cacheKey);
+
+    res.status(200).json(task.tasks);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error updating task' });
   }
 });
 
-
-module.exports=router;
+module.exports = router;

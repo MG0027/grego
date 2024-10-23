@@ -12,13 +12,13 @@ const calendarRoute = require('./routes/calendar')
 const incomeRoute = require('./routes/income')
 const expenseRoute = require('./routes/expense')
 const chatRoutes = require('./routes/bot');
-
+const { frontendUrl} = require('./config')
 const app = express();
 const port = process.env.PORT || 2000;
 
 
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: `${frontendUrl}`, 
   credentials: true, 
   methods: ['GET', 'POST', 'DELETE', 'PATCH','OPTIONS'],   // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
@@ -36,12 +36,12 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 
-app.use("/user", userRoute);
-app.use('/task', taskRoute)
-app.use('/calendar',calendarRoute)
-app.use('/income', incomeRoute);
-app.use('/expense', expenseRoute)
-app.use('/bot', chatRoutes);
+app.use("/api/user", userRoute);
+app.use('/api/task', taskRoute)
+app.use('/api/calendar',calendarRoute)
+app.use('/api/income', incomeRoute);
+app.use('/api/expense', expenseRoute)
+app.use('/api/bot', chatRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
