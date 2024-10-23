@@ -6,7 +6,7 @@ const taskSlice = createSlice({
   reducers: {
     addtask: (state, action) => {
       state.push({
-       taskId: action.payload._id,
+       _id: action.payload._id,
         task: action.payload.task,
         completed: action.payload.completed,
         
