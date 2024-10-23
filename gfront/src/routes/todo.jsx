@@ -39,7 +39,7 @@ function Todo() {
         const { taskId } = response.data;
         dispatch(
           taskActions.addtask({
-            taskId,
+            _id: taskId,
             task: taskName,
             duedatetime: dueDateTime,
             completed: false,
