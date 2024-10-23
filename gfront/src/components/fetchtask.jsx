@@ -2,17 +2,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { taskActions } from "../store/taskslice";
-import API_BASE_URL from "../../config";
+import API_BASE_URL from "../config";
 
 function Fetchtask() {
-  const { userId } = useSelector(state => state.user); 
+  const { userId } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     const fetchTask = async () => {
       try {
-      
         const res = await fetch(`${API_BASE_URL}/task/${userId}`);
         if (!res.ok) {
           throw new Error("Failed to fetch task");
@@ -26,10 +24,9 @@ function Fetchtask() {
     };
 
     if (userId) {
-      
       fetchTask();
     }
-  }, [userId, dispatch]); 
+  }, [userId, dispatch]);
 
   return null;
 }
