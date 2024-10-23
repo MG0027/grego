@@ -271,7 +271,7 @@ margin-top: 1rem;
 
   .taskm {
      /* Adjust the task pie chart box width */
-    height: 50vh; /* Reduce height on smaller screens */
+    height: 60vh; /* Reduce height on smaller screens */
     margin: 1rem;
     margin-bottom: 1rem !important;
   }
@@ -283,8 +283,10 @@ margin-top: 1rem;
     margin-left: -0.5rem;
     box-shadow: 0 5px 10px rgb(0, 0, 0); /* Reduce shadow */
   }
-
-  .taskm button,
+  .taskm button{
+    width: 9.5rem;
+  }
+  
   .x button,
   .q button {
     width: 8rem; /* Adjust button width */
