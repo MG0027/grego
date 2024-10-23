@@ -273,6 +273,7 @@ margin-top: 1rem;
      /* Adjust the task pie chart box width */
     height: 50vh; /* Reduce height on smaller screens */
     margin: 1rem;
+    margin-bottom: 1rem !important;
   }
 
   .x,
