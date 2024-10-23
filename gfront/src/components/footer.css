@@ -1,0 +1,70 @@
+/* footer.css */
+.footer-links {
+  color: whitesmoke !important;  /* Ensures whitesmoke takes priority */
+  text-decoration: none;
+}
+
+.footer-links:hover {
+  color: lightgray; /* Add a hover effect if you'd like */
+}
+
+.footer-title {
+  font-weight: bold;
+  color: whitesmoke; /* Ensures the header is in white */
+  margin-left: 0.7rem;
+}
+
+.footer-subscribe-text {
+  color: whitesmoke;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    
+    padding: 10px;
+  }
+
+  .row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .col-2, .col-4 {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .footer-title {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .nav-item {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .d-flex .form-control, .d-flex .btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .border-top {
+    margin-top: 20px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+

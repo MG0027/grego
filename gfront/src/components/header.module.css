@@ -1,0 +1,88 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.Header :Link {
+  text-decoration: none !important;
+}
+
+.tittle h1 {
+  margin-left: 40px;
+  color: whitesmoke;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.parts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parts h3 {
+  margin: 40px;
+  font-size: large;
+  font-weight: lighter;
+}
+
+.parts :hover {
+  cursor: pointer;
+}
+
+.logout {
+  margin: 40px;
+  color: whitesmoke;
+  font-size: large;
+  font-weight: lighter;
+}
+
+/* Responsive styles for smaller devices */
+@media (max-width: 768px) {
+  .Header {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    padding-top: 2rem;
+  }
+
+  .tittle h1 {
+    margin-left: 0;
+    font-size: 2rem;
+  }
+
+  .parts, .loggedInSection {
+    flex-direction: row;
+    align-items: center;
+   
+  }
+
+  .parts h3{
+    margin-right: 1rem !important;
+  }
+
+  .parts h3, .logout {
+   
+    font-size: medium;
+  }
+
+  .logout{
+    margin-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tittle h1 {
+    font-size: 1.5rem;
+  }
+
+  .parts h3, .logout {
+    margin: 10px 0;
+    font-size: small;
+  }
+  .logout{
+    margin-bottom: 2rem !important;
+  }
+}

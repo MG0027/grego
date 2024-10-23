@@ -1,0 +1,316 @@
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  margin-left: 16.66667%; /* Equivalent to col-md-3 in Bootstrap */
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 25%; /* Equivalent to col-auto on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    margin-left: 4.5rem; /* Adjust based on the collapsed sidebar width */
+  }
+}
+
+/* Adjustments for the Sidebar */
+:global(.container-fluid) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+:global(.row.flex-nowrap) {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+:global(.col-auto.col-md-3.col-xl-2) {
+  position: fixed;
+  height: 150vh;
+  z-index: 1000;
+}
+
+.mainContent h1{
+  text-align: center;
+}
+
+.mainContent img {
+  height: 5.5rem;
+  width: 6.5rem;
+  
+}
+
+.mainContent h1 {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 2.3rem;
+  margin-bottom: 2.5rem;
+  margin-top: -2.1rem;
+  
+}
+
+.taskm{
+  height: 70vh;
+  width: 30vw;
+ 
+  margin: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 16px rgb(0, 0, 0);
+ align-self: baseline;
+  
+}
+
+.taskm button{
+  align-self: center; 
+ width: 10rem;
+ margin-right: 3rem;
+}
+
+.taskm button :hover{
+
+  color: whitesmoke !important;
+
+}
+
+.y{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -2rem;
+}
+
+.x{
+  min-height: 30vh;
+  width: 30vw;
+  box-shadow: 0 8px 16px rgb(0, 0, 0);
+  align-self: baseline;
+ display: flex;
+ flex-direction: column;
+  margin-right: 5rem;
+  margin-bottom: 3rem;
+}
+
+.x h4{
+  text-align: center !important;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.x h5{
+  text-align: center;
+  background-color: grey;
+ color: black;
+ 
+}
+
+
+
+.x button{
+  align-self: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.z{
+border-color: transparent;
+margin-top: 1rem;
+}
+
+.z h4{
+  text-align: center !important;
+
+  
+}
+
+.q{
+  height: 32vh;
+  width: 30vw;
+  box-shadow: 0 8px 16px rgb(0, 0, 0);
+ display: flex;
+ flex-direction: column;
+ justify-content: ;
+ margin-top: 2rem;
+  margin-right: 5rem;
+}
+
+.q button{
+  align-self: center;
+  margin-top: 0.5rem;
+  background-color: #3b3a3a;
+  border: 1px solid black;
+  width: 7rem;
+}
+.a{
+  display: flex;
+  margin-top: 0.5rem;
+  background-color: transparent;
+  justify-content: center;
+
+}
+
+.a h5{
+  margin-left: 1rem;
+}
+
+.w{
+
+  align-self: baseline;
+}
+
+.b{
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+ 
+}
+
+.c{
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+ 
+}
+.b h5{
+  margin-left: 1rem;
+}
+
+.c h5{
+  margin-left: 1rem;
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    margin-left: 4.5rem; /* Adjust based on the collapsed sidebar width */
+  }
+
+  .taskm,
+  .x,
+  .q {
+    width: 90vw; /* Adjust width for smaller screens */
+    height: auto; /* Set height to auto */
+    margin-bottom: 2rem; /* Space between sections */
+  }
+
+  .taskm button,
+  .x button,
+  .q button {
+    width: 6rem; /* Further adjust button width */
+  }
+
+  .mainContent img {
+    height: 4rem; /* Smaller Namaste image */
+    width: 4rem;
+  }
+
+  .mainContent h1 {
+    font-size: 1.8rem; /* Adjust title font size */
+    margin-bottom: 1rem;
+  }
+
+  .taskm h4,
+  .x h4,
+  .q h4 {
+    font-size: 1.1rem; /* Smaller font size for headings */
+  }
+
+  .taskm,
+  .x,
+  .q h5 {
+    font-size: 1rem; /* Adjust font size for content */
+  }
+}
+
+/* Adjustments for the Sidebar */
+:global(.container-fluid) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+:global(.row.flex-nowrap) {
+  margin-right: 0;
+  margin-left: 0;
+  flex-direction: column !important;
+  align-items: flex-start;
+}
+
+:global(.col-auto.col-md-3.col-xl-2) {
+  position: fixed;
+  height: 150vh;
+  z-index: 1000;
+}
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  margin-left: 16.66667%; /* Equivalent to col-md-3 in Bootstrap */
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 6.66667%;/* Equivalent to col-auto on smaller screens */
+  }
+
+  .taskm {
+     /* Adjust the task pie chart box width */
+    height: 50vh; /* Reduce height on smaller screens */
+    margin: 1rem;
+  }
+
+  .x,
+  .q {
+    width: 80vw; /* Adjust the event box and balance box width */
+    margin: 1rem;
+    margin-left: -0.5rem;
+    box-shadow: 0 5px 10px rgb(0, 0, 0); /* Reduce shadow */
+  }
+
+  .taskm button,
+  .x button,
+  .q button {
+    width: 8rem; /* Adjust button width */
+  }
+
+  .y {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .a h5,
+  .b h5,
+  .c h5 {
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .taskm h4,
+  .x h4,
+  .q h4 {
+    font-size: 1.3rem; /* Adjust heading size */
+  }
+
+  .a,
+  .b,
+  .c {
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+}

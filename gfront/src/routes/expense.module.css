@@ -1,0 +1,373 @@
+/* General Container for Layout */
+.expenseContainer {
+  display: flex;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: #1b1b1b;
+  color: whitesmoke;
+  overflow-x: hidden;
+}
+
+/* Main Content Styling */
+.mainContent {
+  flex-grow: 1;
+  padding: 40px;
+  margin-left: 16.66667%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+   
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+   
+  }
+}
+
+/* Headline Styling */
+.mainContent h1 {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 2.3rem;
+  margin-bottom: 2.5rem;
+  margin-top: -2.5rem;
+  
+}
+
+.mainContent img {
+  height: 4rem;
+  width: 5.5rem;
+  margin-left: 10px;
+}
+
+/* Screen Layout for Income and Expenses */
+.screen {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* Income & Expenses Containers */
+.income, .expenses {
+  background-color: #3b3a3a;
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
+  border-radius: 12px;
+  padding: 20px;
+  width: 45%;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.income:hover, .expenses:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.income h3 {
+  background-color: transparent;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.expenses h3{
+  background-color: transparent;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Input Field Layout */
+.inputfield {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
+}
+
+.inputfield2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
+}
+
+.inputfield2 input{
+  padding: 10px;
+  margin-top: 10px;
+   border-radius: 10px;
+   
+  
+ 
+ 
+   border: 1px solid #444;
+   background-color: #1b1b1b;
+   color: whitesmoke;
+}
+.inputfield input {
+  
+  padding: 10px;
+ margin-top: 10px;
+  border-radius: 10px;
+  
+ 
+
+
+  border: 1px solid #444;
+  background-color: #1b1b1b;
+  color: whitesmoke;
+}
+
+.inputfield2 button{
+  border: none;
+  font-size: 1.3rem;
+ margin-right: 1rem;
+ margin-top: -0.5rem;
+ 
+}
+
+.inputfield2 button :hover{
+  color: #3b3a3a !important;
+}
+
+.inputfield button{
+  border: none;
+  font-size: 1.3rem;
+ margin-right: 1rem;
+ margin-top: -0.5rem;
+ 
+}
+
+.inputfield button :hover{
+  color: #3b3a3a !important;
+}
+
+.one{
+  width: 7rem;
+  margin-left: -0.5rem;
+}
+
+.two{
+  background-color: transparent;
+}
+
+
+
+.two label{
+  color: whitesmoke;
+  font-size: 0.875rem;
+  margin-left: -0.6rem;
+  margin-bottom: 6px;
+}
+
+.three{
+  margin-left: -1.5rem;
+  background-color: transparent;
+}
+
+.inputfield input:focus {
+  outline: none;
+  border-color: #39FF14;
+}
+
+.inputfield2 input:focus {
+  outline: none;
+  border-color: red;
+}
+
+
+/* Button Styling */
+
+
+
+
+/* Task/Item Styling */
+.transactionItem {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #151414 !important;
+  border: 1px solid #1b1b1b;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
+}
+
+.taskInfo{
+  display: flex;
+  flex-direction: column;
+  
+  align-items: last baseline;
+}
+
+.taskInfo p {
+  margin: 0;
+  color: #fff;
+ 
+}
+
+.taskName{
+  background-color: transparent !important;
+}
+
+.deleteButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+ 
+}
+.deleteIcon:hover{
+ 
+  color: #3b3a3a !important;
+  
+}
+
+.deleteIcon{
+  color: red !important;
+  font-size: 1.5rem;
+}
+
+.hideButton{
+  border: none;
+}
+
+.hideButton :hover{
+  color: #3b3a3a !important;
+}
+
+.hiddenTransaction{
+  background-color: grey !important;
+}
+.hiddenTransaction p{
+  background-color: grey !important;
+  color: whitesmoke !important;
+}
+
+.hiddenTransaction .taskInfo{
+  background-color: grey !important;
+}
+
+.hiddenTransaction .deleteIcon{
+  background-color: grey !important;
+}
+
+
+/* Utility */
+@media (max-width: 768px) {
+  .income, .expenses {
+    width: 45%;
+  }
+}
+
+@media (max-width: 576px) {
+  .income, .expenses {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.summary{
+  display: flex;
+  justify-content: space-around;
+  
+ 
+}
+.summaryCard{
+  margin-right: 3rem;
+}
+
+.summaryCard h3{
+  font-size: 1.5rem;
+}
+
+.summaryCard p{
+ 
+  width: 8rem;
+}
+/* Media Queries */
+@media (max-width: 768px) {
+  .mainContent {
+     /* Adjust margin for medium-sized screens */
+  }
+
+  .summaryCard h3{
+    font-size: 1rem;
+
+  }
+
+  .summaryCard {
+   margin-right: 0rem;
+   align-items: center;
+   justify-content: center;
+  }
+
+  .summary{
+    align-items: center;
+   justify-content: center;
+  }
+  .summaryCard p{
+ 
+    width: 9rem;
+  }
+
+
+  .screen {
+    flex-direction: column; /* Stack income and expenses vertically */
+    align-items: center; /* Center align items */
+  }
+
+  .income, .expenses {
+    width: 90%; /* Increase width to make it more responsive */
+    margin-bottom: 1rem;
+    margin-left: -1rem; /* Add margin between income and expenses */
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    /* Further adjust margin for smaller screens */
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .mainContent h1 {
+    font-size: 1.4rem; /* Reduce font size for the headline */
+    margin-top: -1rem; /* Adjust margin to fit smaller screens */
+  }
+
+  .income, .expenses {
+    width: 100%; /* Full width for small screens */
+    padding: 15px; /* Reduce padding */
+  }
+
+  .inputfield, .inputfield2 {
+    flex-direction: column; /* Stack input fields vertically */
+  }
+
+  .inputfield .two, .inputfield .three {
+    width: 100%; /* Full width for input fields */
+    margin-bottom: 10px; /* Add space between fields */
+  }
+
+  button {
+    width: 100%; /* Full width for buttons */
+  }
+  .two label{
+    margin-left: 1rem;
+    
+    
+  }
+}

@@ -1,0 +1,78 @@
+.botContainer{
+  display: flex;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  margin-left: 16.66667%; /* Equivalent to col-md-3 in Bootstrap */
+  
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 25%; /* Equivalent to col-auto on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    margin-left: 4.5rem; /* Adjust based on the collapsed sidebar width */
+  }
+}
+
+/* Adjustments for the Sidebar */
+:global(.container-fluid) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+:global(.row.flex-nowrap) {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+:global(.col-auto.col-md-3.col-xl-2) {
+  position: fixed;
+  height: 150vh;
+  z-index: 1000;
+}
+
+.mainContent h1{
+  text-align: center;
+}
+
+.mainContent img {
+  height: 5.5rem;
+  width: 6.5rem;
+  
+}
+
+.mainContent h1 {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 2.3rem;
+  margin-bottom: 2.5rem;
+  margin-top: -1.9rem;
+  
+}
+
+.input{
+  margin-left: 1rem;
+  background-color: transparent;
+}
+.input button{
+  background-color: transparent;
+}
+
+@media (max-width: 768px ) {
+  .input{
+    display: flex;
+    flex-direction: row;
+  }
+  
+}

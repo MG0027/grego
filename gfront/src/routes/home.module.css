@@ -1,0 +1,76 @@
+.text{
+  text-align: center;
+  font-size: 19vw;
+  margin-top: -12.3rem !important;
+  margin-bottom: 3.8rem;
+  font-weight: 1000;
+  line-height: 13rem !important;
+  color: #f3c77c !important;
+}
+
+.line1{
+  text-align: center;
+  font-weight: 300;
+  font-size: 2rem;
+  
+}
+
+.line2{
+  text-align: center;
+  font-weight: 10;
+  font-size: 1.5rem;
+  
+  font-style: italic;
+  
+}
+
+.trybutton{
+  margin-bottom: 6rem;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  background-color: #151414;
+  color: #f8cc80 !important;
+  height: 3rem;
+  width: 12rem;
+  font-size: larger;
+  font-weight: 600;
+  border-color: rgba(245, 245, 245, 0) !important;
+  
+ 
+  
+  box-shadow: 0 3px 8px#f3c77c, 0 3px 8px #f3c77c;
+  transition: all 0.3s ease;
+}
+
+.trybutton:hover {
+  transform: scale(1.1); 
+  box-shadow: 0 5px 10px #f3c77c, 0 5px 10px#f3c77c;
+  cursor: pointer;
+}
+
+.trybutton:active {
+  box-shadow: 0 5px 10px#f3c77c, 0 50px 10px #f3c77c;
+  transform: scale(0.98); 
+}
+
+.trio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 9rem;
+}
+.icon{
+  color: #f3c77c !important;
+
+  display: inline-block;
+ 
+}
+.img{
+  
+  margin-bottom: 3rem !important;
+  opacity: 1;
+  height: 7rem;
+  margin-top: 2rem;
+}
+

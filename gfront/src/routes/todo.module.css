@@ -1,0 +1,371 @@
+
+.todoContainer {
+  display: flex;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #151414;
+  
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 40px;
+  margin-left: 16.66667%; /* Equivalent to col-md-3 in Bootstrap */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: whitesmoke;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 25%; /* Equivalent to col-auto on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    margin-left: 4.5rem; /* Adjust based on the collapsed sidebar width */
+  }
+}
+
+.mainContent h1 {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 2.3rem;
+  margin-bottom: 2.5rem;
+  margin-top: -4.5rem;
+  
+}
+
+.mainContent img {
+  height: 6rem;
+  width: 6.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Add Task Button */
+.addTaskButton {
+  
+ 
+  padding: 12px 20px;
+  width: 10rem !important;
+  margin-left: 4rem;
+  background-color: #5abaeabe !important;
+  color: whitesmoke;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+  margin-right: 7rem !important;
+}
+
+.addTaskButton:hover {
+  background-color: #3b3a3a !important;
+}
+
+/* Task Input Fields */
+.taskInput {
+  margin-right: 3rem;
+  margin-left: 4rem;
+  background-color: #151414 !important;
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgb(0, 0, 0);
+}
+
+.inputField,
+.duedate {
+  padding: 10px 15px;
+  margin-bottom: 1rem;
+  background-color: #F4F4F4;
+  border: 1px solid #14141454;
+  border-radius: 50px;
+  color: black !important;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.inputField:focus,
+.duedate:focus {
+  border-color: #14141454;
+}
+
+/* Submit Task Button */
+.submitTaskButton {
+  padding: 8px 5px;
+  width: 5rem;
+  margin-left: 5.2rem;
+  margin-top: 1rem;
+  background-color: #5abaeabe !important;
+  color: whitesmoke;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitTaskButton:hover {
+  background-color: #3b3a3a !important;
+}
+
+.addicon{
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+.taskscreen {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: #151414 !important;
+  margin-top: -2.5rem;
+}
+
+.tasklist {
+  border: 2px solid #000000be !important;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  text-align: left;
+  border-radius: 15px;
+  background-color: #3b3a3a;
+  box-shadow: 0 8px 16px rgb(0, 0, 0);
+  
+}
+
+.tasklist h4 {
+  font-size: 1.5rem;
+  color: whitesmoke;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  background-color: transparent;
+  text-align: center;
+}
+
+.taskItem {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  margin: 1rem 0;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+ 
+  border-radius: 10px;
+  background-color: #F4F4F4 !important;
+  transition: all 0.3s ease;
+}
+
+.taskItem:hover {
+  box-shadow: 0 6px 12px rgba(24, 23, 23, 0.438) !important;
+  transform: scale(1) !important;
+}
+
+.taskInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: transparent;
+}
+
+.taskName {
+  flex-grow: 1;
+  margin: 0;
+  color: #151414 !important;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.taskDateTime {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: transparent;
+}
+
+.taskDateTime span {
+  font-size: 0.875rem;
+  color: #666 !important;
+  background-color: transparent;
+}
+
+.taskItem button {
+  width: auto;
+  align-self: flex-end;
+  margin-top: 0.5rem;
+  background-color: transparent !important;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.taskItem button:hover {
+  transform: scale(1.8) !important;
+}
+
+.deleteIcon {
+  background-color: transparent;
+  color: #ff4d4d !important;
+  font-size: 1.25rem;
+ 
+}
+.check{
+  background-color: transparent;
+  font-size: 0.85rem;
+ 
+ 
+
+}
+.checkb{
+  margin-bottom: 0.1rem;
+}
+
+
+@media (max-width: 768px) {
+  .tasklist {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Media queries for responsiveness */
+
+/* For tablets and small desktops (screen width <= 768px) */
+@media (max-width: 768px) {
+  .taskscreen{
+    flex-direction: column;
+  }
+  .mainContent h1 {
+    font-size: 1.8rem;
+    
+  }
+
+  .mainContent img {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+
+  .addTaskButton {
+    width: 8rem !important;
+    padding: 10px 16px;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .taskInput {
+    width: 16rem;
+    padding: 15px;
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+
+  .inputField,
+  .duedate {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .submitTaskButton {
+    width: 4rem;
+    margin-left: 4.5rem;
+    padding: 6px 4px;
+  }
+
+  .tasklist {
+    width: 75vw;
+    padding: 20px;
+  
+   margin-left: -4rem;
+  }
+
+  .taskItem {
+    padding: 0.75rem;
+  }
+
+  .taskName {
+    font-size: 0.9rem;
+  }
+
+  .taskDateTime span {
+    font-size: 0.75rem;
+  }
+}
+
+/* For mobile phones (screen width <= 576px) */
+@media (max-width: 576px) {
+  .mainContent h1 {
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+  }
+
+  .mainContent img {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  .addTaskButton {
+    width: 6.5rem !important;
+    padding: 8px 12px;
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .taskInput {
+    width: 14rem;
+    padding: 12px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  .inputField,
+  .duedate {
+    padding: 7px 10px;
+    font-size: 0.8rem;
+  }
+
+  .submitTaskButton {
+    width: 3.5rem;
+    margin-left: 3.8rem;
+    padding: 5px 3px;
+  }
+
+  .tasklist {
+    margin-left: -4rem;
+    padding: 15px;
+   
+  }
+
+  .taskItem {
+    padding: 0.5rem;
+  }
+
+  .taskName {
+    font-size: 0.85rem;
+  }
+
+  .taskDateTime span {
+    font-size: 0.7rem;
+  }
+
+  .checkb {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .deleteIcon {
+    font-size: 1rem;
+  }
+}
