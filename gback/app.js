@@ -18,7 +18,7 @@ const port = process.env.PORT || 2000;
 
 
 app.use(cors({
-  origin: `${frontendUrl}`, 
+  origin:'https://grego-ek90.onrender.com', 
   credentials: true, 
   methods: ['GET', 'POST', 'DELETE', 'PATCH','OPTIONS'],   // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
