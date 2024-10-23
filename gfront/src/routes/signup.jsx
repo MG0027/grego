@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import API_BASE_URL from '../../config';
 
 function Signup() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function Signup() {
 
     try {
       
-      const response = await fetch('http://localhost:2000/user/signup', { 
+      const response = await fetch(`${API_BASE_URL}/user/signup`, { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

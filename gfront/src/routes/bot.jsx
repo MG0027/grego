@@ -3,7 +3,7 @@ import styles from './bot.module.css'
 import React, { useState, useRef, useEffect } from 'react';
 import { Send } from 'lucide-react';
 import { useSelector } from "react-redux";
-
+import API_BASE_URL from '../config';
 function Bot(){
 const tasks = useSelector(state=> state.task);
 const calendar = useSelector(state=> state.event);
@@ -36,7 +36,7 @@ const income = useSelector(state=> state.income);
 
   
     try {
-      const response = await fetch('http://localhost:2000/bot', {
+      const response = await fetch(`${API_BASE_URL}/bot`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

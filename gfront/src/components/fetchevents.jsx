@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { calendarActions } from "../store/calendarslice";
-
+import API_BASE_URL from '../config';
 function Fetchevent() {
   const { userId } = useSelector(state => state.user); 
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function Fetchevent() {
     const fetchEvent = async () => {
       try {
       
-        const res = await fetch(`http://localhost:2000/calendar/${userId}`);
+        const res = await fetch(`${API_BASE_URL}/calendar/${userId}`);
         if (!res.ok) {
           throw new Error("Failed to fetch event");
         }

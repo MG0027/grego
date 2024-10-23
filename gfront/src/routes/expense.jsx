@@ -8,7 +8,7 @@ import { useMemo, useRef } from 'react';
 import axios from 'axios';
 import { expenseActions } from '../store/expenseslice';
 import { incomeActions } from '../store/amountslice';
-
+import API_BASE_URL from '../config';
 
 
 
@@ -59,7 +59,7 @@ function Expenses(){
     }
 
     try {
-      const response = await axios.post('http://localhost:2000/expense/add-expense', {
+      const response = await axios.post(`${API_BASE_URL}/expense/add-expense`, {
         userId: userId,
         amount: Number(expenseAmount),
         description: expensedesc,
@@ -87,7 +87,7 @@ function Expenses(){
   const removeExpTask = async (expenseId) => {
     console.log(expenseId)
     try {
-      await axios.delete(`http://localhost:2000/expense/${userId}/${expenseId}`, {
+      await axios.delete(`${API_BASE_URL}/expense/${userId}/${expenseId}`, {
         data: {
           userId: userId,
           expenseId,
@@ -105,7 +105,7 @@ function Expenses(){
 
   const hideExpense = async (expenseId) => {
     try {
-      const response = await axios.patch(`http://localhost:2000/expense/${userId}/${expenseId}`);
+      const response = await axios.patch(`${API_BASE_URL}/expense/${userId}/${expenseId}`);
       const updatedExpense = response.data;
       dispatch(expenseActions.setexpense(updatedExpense));
     } catch (error) {
@@ -115,7 +115,7 @@ function Expenses(){
   
   const hideIncome = async (incomeId) => {
     try {
-      const response = await axios.patch(`http://localhost:2000/income/${userId}/${incomeId}`, 
+      const response = await axios.patch(`${API_BASE_URL}/income/${userId}/${incomeId}`, 
         
       );
       const updatedIncome = response.data;
@@ -136,7 +136,7 @@ function Expenses(){
     }
 
     try {
-      const response = await axios.post('http://localhost:2000/income/add-income', {
+      const response = await axios.post(`${API_BASE_URL}/income/add-income`, {
         userId: userId,
         amount: Number(incomeAmount),
         description: incomedesc,
@@ -164,7 +164,7 @@ function Expenses(){
   const removeIncTask = async (incomeId) => {
     console.log(incomeId);
     try {
-      await axios.delete(`http://localhost:2000/income/${userId}/${incomeId}`, {
+      await axios.delete(`${API_BASE_URL}/income/${userId}/${incomeId}`, {
         data: {
           userId: userId,
          incomeId,

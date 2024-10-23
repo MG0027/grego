@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { expenseActions } from "../store/expenseslice";
+import API_BASE_URL from "../../config";
 
 
 function Fetchexpense() {
@@ -12,7 +13,7 @@ function Fetchexpense() {
     const fetchExpense = async () => {
       try {
       
-        const res = await fetch(`http://localhost:2000/expense/${userId}`);
+        const res = await fetch(`${API_BASE_URL}/expense/${userId}`);
         if (!res.ok) {
           throw new Error("Failed to fetch event");
         }

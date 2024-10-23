@@ -9,7 +9,7 @@ import Fetchtask from "./fetchtask";
 import Fetchevent from "./fetchevents";
 import Fetchexpense from "./fetchexpense";
 import Fetchincome from "./fetchincome";
-
+import API_BASE_URL from '../config';
 function Header() {
   const titleRef = useRef();
   const partsRef = useRef();
@@ -46,7 +46,7 @@ function Header() {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('http://localhost:2000/user/logout', {}, { withCredentials: true });
+      const response = await axios.post(`${API_BASE_URL}/user/logout`, {}, { withCredentials: true });
   
       if (response.status === 200) {
         dispatch(clearUser());

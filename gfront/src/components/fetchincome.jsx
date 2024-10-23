@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { incomeActions } from "../store/amountslice";
+import API_BASE_URL from "../../config";
 
 function Fetchincome() {
   const { userId } = useSelector(state => state.user); 
@@ -11,7 +12,7 @@ function Fetchincome() {
     const fetchIncome = async () => {
       try {
       
-        const res = await fetch(`http://localhost:2000/income/${userId}`);
+        const res = await fetch(`${API_BASE_URL}/income/${userId}`);
         if (!res.ok) {
           throw new Error("Failed to fetch inc");
         }

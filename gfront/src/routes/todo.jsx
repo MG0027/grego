@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { taskActions } from '../store/taskslice';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import API_BASE_URL from '../../config';
 
 function Todo() {
   const [showInput, setShowInput] = useState(false); 
@@ -28,7 +29,7 @@ function Todo() {
     }
 
     try {
-      const response = await axios.post('http://localhost:2000/task/add-task', {
+      const response = await axios.post(`${API_BASE_URL}/task/add-task`, {
         userId: userId,
         task: taskName,
         duedatetime: dueDateTime
@@ -55,7 +56,7 @@ function Todo() {
   const removeTask = async (taskId) => {
     console.log(taskId)
     try {
-      await axios.delete(`http://localhost:2000/task/${userId}/${taskId}`, {
+      await axios.delete(`${API_BASE_URL}/task/${userId}/${taskId}`, {
         data: {
           userId: userId,
           taskId: taskId
@@ -79,7 +80,7 @@ function Todo() {
 
   const changeStatus = async (taskId) => {
     try {
-      const response = await axios.patch(`http://localhost:2000/task/${userId}/${taskId}`, {
+      const response = await axios.patch(`${API_BASE_URL}/task/${userId}/${taskId}`, {
         completed: true,
       });
       const updatedTask = response.data;

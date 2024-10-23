@@ -1,7 +1,7 @@
 import Sidebar from "../components/sidebar";
 import styles from './calendar.module.css'
 import { useRef, useState } from 'react';
-
+import API_BASE_URL from '../config';
 import 'react-calendar/dist/Calendar.css';
 import { useDispatch, useSelector } from "react-redux";
 import { calendarActions } from "../store/calendarslice";
@@ -41,7 +41,7 @@ function CalendarComponent(){
     }
 
     try {
-      const response = await axios.post('http://localhost:2000/calendar/add-event', {
+      const response = await axios.post(`${API_BASE_URL}/calendar/add-event`, {
         userId: userId,
         event: eventName,
         date : formattedDate,
@@ -67,7 +67,7 @@ function CalendarComponent(){
   const removeTask = async (eventId) => {
     console.log(eventId)
     try {
-      await axios.delete(`http://localhost:2000/calendar/${userId}/${eventId}`, {
+      await axios.delete(`${API_BASE_URL}/calendar/${userId}/${eventId}`, {
         data: {
           userId: userId,
           eventId,
@@ -92,7 +92,7 @@ function CalendarComponent(){
   const changeStatus = async (eventId) => {
     console.log(eventId);
     try {
-      const response = await axios.patch(`http://localhost:2000/calendar/${userId}/${eventId}`, {
+      const response = await axios.patch(`${API_BASE_URL}/calendar/${userId}/${eventId}`, {
         completed: true,
       });
       const updatedEvent = response.data;

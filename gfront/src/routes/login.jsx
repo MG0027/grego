@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/footer';
 import { useAuth } from '../useauth';
 // import { useAuth } from '../useauth';
-
+import API_BASE_URL from '../config';
 function Login() {
   const navigate = useNavigate();
   const emailRef = useRef(null);
@@ -18,7 +18,7 @@ function Login() {
     const password = passwordRef.current.value;
     try {
           
-      const response = await fetch('http://localhost:2000/user/login', { 
+      const response = await fetch(`${API_BASE_URL}/user/login`, { 
         method: 'POST',
         credentials: 'include',
         headers: {
