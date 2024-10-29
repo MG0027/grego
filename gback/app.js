@@ -42,6 +42,9 @@ app.use('/api/calendar',calendarRoute)
 app.use('/api/income', incomeRoute);
 app.use('/api/expense', expenseRoute)
 app.use('/api/bot', chatRoutes);
+app.get('/keep-alive', (req, res) => {
+  res.send('OK');
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

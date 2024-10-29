@@ -17,6 +17,7 @@ import Bot from './routes/bot.jsx';
 import MyCalendar from './routes/calendar.jsx';
 import EventCalendar from './routes/calendar.jsx';
 import CalendarComponent from './routes/calendar.jsx';
+import KeepAlive from './routes/KeepAlive.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,7 @@ const router = createBrowserRouter([
         element: <Bot></Bot>
        
       },
+      { path: '/keep-alive', element: <KeepAlive /> },
     ],
    
   
