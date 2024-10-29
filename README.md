@@ -57,5 +57,5 @@ docker-compose up --build
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/grego.git
+   git clone https://github.com/MG0027/grego.git
    cd grego
