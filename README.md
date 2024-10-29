@@ -2,6 +2,7 @@ Grego - Personal Assistant Web App
 Grego is a personal assistant web application to help users organize their lives, manage tasks and events, track expenses, and get assistance through an integrated chatbot. Built with the MERN stack, it’s a powerful tool for daily life management and a practice project to enhance development and deployment skills.
 
 Here is the demo URL of my project : https://grego-ek90.onrender.com/
+((I have deployed on render so maybe it will have some delay while starting due to inactiveness)
 
 Here is the demo video :
 https://github.com/user-attachments/assets/3d74cce8-86f6-4d5b-90ae-02e2e2cc0119
