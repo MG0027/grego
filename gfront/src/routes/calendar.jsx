@@ -18,11 +18,9 @@ function CalendarComponent(){
   const eventNameRef = useRef();
   
   const events = useSelector(state => state.event);
-  console.log(events);
-  console.log(events);
-  console.log(Array.isArray(events));
+ 
   const inCompletedEvent = events.filter((event) => event.completed === false);
-  console.log(inCompletedEvent);
+
 
 
   const handleDateChange = (date) => {

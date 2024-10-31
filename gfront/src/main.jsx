@@ -19,55 +19,55 @@ import EventCalendar from './routes/calendar.jsx';
 import CalendarComponent from './routes/calendar.jsx';
 import KeepAlive from './routes/KeepAlive.jsx';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      { path: "/", element: <Home /> },
-      
-      {
-        path: "/login",
-        element: <Login/>
-       
-      },
-      {
-        path: "/signup",
-        element: <Signup/>
-       
-      },
-      {
-        path: "/features",
-        element: <Features></Features>
-       
-      },
-      
-      {
-        path: "/task",
-        element: <Todo></Todo>
-       
-      },
-      {
-        path: "/expenses",
-        element: <Expenses></Expenses>
-       
-      },
-      {
-        path: "/calendar",
-        element: <CalendarComponent></CalendarComponent>
-       
-      },
-      {
-        path: "/bot",
-        element: <Bot></Bot>
-       
-      },
-      { path: '/keep-alive', element: <KeepAlive /> },
-    ],
-   
-  
-  },
-]);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        { path: "/", element: <Home /> },
+        
+        {
+          path: "/login",
+          element: <Login/>
+        
+        },
+        {
+          path: "/signup",
+          element: <Signup/>
+        
+        },
+        {
+          path: "/features",
+          element: <Features></Features>
+        
+        },
+        
+        {
+          path: "/task",
+          element: <Todo></Todo>
+        
+        },
+        {
+          path: "/expenses",
+          element: <Expenses></Expenses>
+        
+        },
+        {
+          path: "/calendar",
+          element: <CalendarComponent></CalendarComponent>
+        
+        },
+        {
+          path: "/bot",
+          element: <Bot></Bot>
+        
+        },
+        { path: '/keep-alive', element: <KeepAlive /> },
+      ],
+    
+    
+    },
+  ]);
 
 
 createRoot(document.getElementById('root')).render(
